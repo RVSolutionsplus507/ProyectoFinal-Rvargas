@@ -1,50 +1,74 @@
 function juegorvs() {
-    let jugar = prompt("Quieres jugar? (si/no)");
-    while (jugar.toLowerCase() !== "si" && jugar.toLowerCase() !== "no") {
-        jugar = prompt("Opción inválida. Por favor, responde con 'si' o 'no'.");
+    class Jugador {
+        constructor(nombre) {
+            this.nombre = nombre;
+            this.puntaje = 0;
+        }
+        
+        escogeOpciones() {
+            const opciones = ['piedra', 'papel', 'tijeras'];
+            const calculo = Math.floor(Math.random() * opciones.length);
+            return opciones[calculo];
+        }
     }
-
-    if (jugar.toLowerCase() === "si") {
-        while (true) {
-            let opcionUsuario = prompt("Elige: Piedra, Papel, o Tijeras");
-
-            if (opcionUsuario !== "piedra" && opcionUsuario !== "papel" && opcionUsuario !== "tijeras") {
-                alert("Opción inválida. Por favor, elige entre Piedra, Papel o Tijeras.");
+    
+    function juego(jugador1, jugador2) {
+        const opciones = ['piedra', 'papel', 'tijeras'];
+        
+        alert(`Bienvenidos al juego de Piedra, Papel o Tijeras!`);
+        alert(`El juego constará de 3 rondas.`);
+        
+        while (jugador1.puntaje < 3 && jugador2.puntaje < 3) {
+            const opcion1 = prompt(`${jugador1.nombre}, Escoge cualquiera de estas opciones (piedra, papel, or tijeras):`).toLowerCase();
+            const opcion2 = prompt(`${jugador2.nombre}, Escoge cualquiera de estas opciones (piedra, papel, or tijeras):`).toLowerCase();
+            
+            if (!opciones.includes(opcion1) || !opciones.includes(opcion2)) {
+                alert('Opción Inválida. Por favor ingresa piedra, papel o tijeras.');
                 continue;
             }
-
-            let opcionPC = Math.random();
-            if (opcionPC < 0.33) {
-                opcionPC = "piedra";
-            } else if (opcionPC < 0.66) {
-                opcionPC = "papel";
-            } else {
-                opcionPC = "tijeras";
-            }
-
-            if (opcionUsuario === opcionPC) {
-                alert("Es un Empate!");
+            
+            alert(`${jugador1.nombre} Escogió ${opcion1}. ${jugador2.nombre} Escogió ${opcion2}.`);
+            
+            if (opcion1 === opcion2) {
+                alert('Quedaron Empatados!');
             } else if (
-                (opcionUsuario === "piedra" && opcionPC === "tijeras") ||
-                (opcionUsuario === "papel" && opcionPC === "piedra") ||
-                (opcionUsuario === "tijeras" && opcionPC === "papel")
-            ) {
-                alert("Ganaste! Bien hecho Crack!!");
+                (opcion1 === 'piedra' && opcion2 === 'tijeras') ||
+                (opcion1 === 'papel' && opcion2 === 'piedra') ||
+                (opcion1 === 'tijeras' && opcion2 === 'papel')
+                ) {
+                    jugador1.puntaje++;
+                    alert(`${jugador1.nombre} Ganastes!`);
+                } else {
+                    jugador2.puntaje++;
+                    alert(`${jugador2.nombre} Ganastes!`);
+                }
+                
+                alert(`Puntaje Actual: ${jugador1.nombre}: ${jugador1.puntaje}, ${jugador2.nombre}: ${jugador2.puntaje}`);
+            }
+            
+            if (jugador1.puntaje === 3) {
+                alert(`${jugador1.nombre} Ganastes el Juego!`);
             } else {
-                alert("Perdiste! la Computadora te dio una paliza..! =(");
+                alert(`${jugador2.nombre} Ganastes el Juego!`);
             }
-
-            let juegoNuevo = prompt("¿Quieres jugar nuevamente? (si/no)");
-
-            while (juegoNuevo.toLowerCase() !== "si" && juegoNuevo.toLowerCase() !== "no") {
-                juegoNuevo = prompt("Opción inválida. Por favor, responde con 'si' o 'no'.");
-            }
-
-            if (juegoNuevo.toLowerCase() !== "si") {
-                break;
+            
+            const jugarNuevamente = confirm('Quieres jugar de nuevo?');
+            if (jugarNuevamente) {
+                jugador1.puntaje = 0;
+                jugador2.puntaje = 0;
+                juego(jugador1, jugador2);
+            } else {
+                return;
             }
         }
-    } else {
-        alert("No hay problema, vuelve pronto!");
+        
+        const jugador1Nombre = prompt('Ingrese el nombre del Primer Jugador:');
+        const jugador2Nombre = prompt('Ingrese el nombre del Segundo Jugador:');
+        const jugador1 = new Jugador(jugador1Nombre);
+        const jugador2 = new Jugador(jugador2Nombre);
+        
+        juego(jugador1, jugador2);
     }
-}
+    
+    
+    
