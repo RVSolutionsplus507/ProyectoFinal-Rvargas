@@ -3,54 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador RVargas</title>
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: white;
-            font-size: 24px;
-            flex-direction: column;
-        }
-
-        @keyframes gradient-animation {
-            0% { background-image: linear-gradient(to right, red, orange); }
-            50% { background-image: linear-gradient(to right, orange, yellow); }
-            100% { background-image: linear-gradient(to right, yellow, green); }
-        }
-
-        h1, h2 {
-            animation: gradient-animation 5s linear infinite;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        button {
-            background-image: linear-gradient(to right, #ff4081, #ff8f00);
-            font-weight: bold;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-    </style>
+    <meta name="description" content="Lista de Tareas RVS - Aplicación para gestionar tareas">
+    <meta name="keywords" content="tareas, lista de tareas, gestión de tareas, aplicación web">
+    <meta name="author" content="Roberto Vargas">
+    <title>Lista de Tareas RVS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <h1 id="titulo">JUEGO DE PIEDRA, PAPEL O TIJERAS</h1>
-    <h2>(VERSION 2.0)</h2>
-    <button onclick="juegorvs()">Jueguemos!</button>
-    <script src="main.js"></script>
+    <header>
+        <img src="../assets/logorvs.png" alt="Logo">
+        <h1>Lista de Tareas RVS</h1>
+    </header>
+
+    <main>
+        <form id="tareas-form">
+            <input type="text" id="tarea-input" placeholder="Agregar Tarea" autocomplete="off">
+            <select id="prioridad-select">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            <button type="submit">Añadir</button>
+        </form>
+        <ul class="titulos-tarea grid-item">
+            <li>Tareas</li>
+            <li>Fecha</li>
+            <li>Prioridad</li>
+        </ul>
+        <ul id="lista-tareas"></ul>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/main.js" defer></script>
 </body>
 </html>

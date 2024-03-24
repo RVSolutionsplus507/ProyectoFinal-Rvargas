@@ -1,0 +1,158 @@
+/* Estilos para resetear */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Estilos del Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    flex: 1;
+    text-align: center;
+}
+
+header img {
+    width: 100px;
+    height: 50px;
+}
+
+/* Estilos del Main */
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del Formulario */
+#tareas-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#tarea-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#tarea-input:focus {
+    outline: none;
+}
+
+#prioridad-select {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#tareas-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tareas-form button:hover {
+    background-color: #555;
+}
+
+/* Estilo de la Lista de Tareas */
+#lista-tareas {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#lista-tareas li {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#lista-tareas li:last-child {
+    border-bottom: none;
+}
+
+#lista-tareas li .task-text {
+    cursor: pointer;
+    flex: 1;
+}
+
+#lista-tareas li .delete-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#lista-tareas li .delete-button:hover {
+    background-color: #ff3333;
+}
+
+#lista-tareas li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.grid-item {
+    grid-column: span 1;
+}
+
+
+.titulos-tarea  {
+    margin-right: 150px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    list-style-type: none;
+    text-decoration: none;
+    color: #6d6d6d;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
