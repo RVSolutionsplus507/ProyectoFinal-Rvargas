@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de Tareas RVS - Aplicación para gestionar tareas">
+    <meta name="keywords" content="tareas, lista de tareas, gestión de tareas, aplicación web">
+    <meta name="author" content="Roberto Vargas">
+    <title>Lista de Tareas RVS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../assets/logorvs.png" alt="Logo">
+        <h1>Lista de Tareas RVS</h1>
+        <button id="logout-button" class="logout-button">Salir</button>
+    </header>
+
+    <main>
+        <form id="tareas-form">
+            <input type="text" id="tarea-input" placeholder="Agregar Tarea" autocomplete="off">
+            <select id="prioridad-select">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            <button type="submit">Añadir</button>
+        </form>
+        <ul class="titulos-tarea grid-container">
+            <li>Tareas</li>
+            <li>Fecha</li>
+            <li>Prioridad</li>
+            <li>Acciones</li>
+        </ul>
+        <ul id="lista-tareas"></ul>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

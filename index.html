@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <meta name="description" content="Login page for XYZ application">
+    <meta name="keywords" content="login, authentication, security">
+    <meta name="author" content="Roberto Vargas">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lista de Tareas RVS - Aplicación para gestionar tareas">
-    <meta name="keywords" content="tareas, lista de tareas, gestión de tareas, aplicación web">
-    <meta name="author" content="Roberto Vargas">
-    <title>Lista de Tareas RVS</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Tarea RVS Login</title>
 </head>
 <body>
     <header>
         <img src="../assets/logorvs.png" alt="Logo">
-        <h1>Lista de Tareas RVS</h1>
     </header>
-
-    <main>
-        <form id="tareas-form">
-            <input type="text" id="tarea-input" placeholder="Agregar Tarea" autocomplete="off">
-            <select id="prioridad-select">
-                <option value="alta">Alta</option>
-                <option value="media">Media</option>
-                <option value="baja">Baja</option>
-            </select>
-            <button type="submit">Añadir</button>
-        </form>
-        <ul class="titulos-tarea grid-item">
-            <li>Tareas</li>
-            <li>Fecha</li>
-            <li>Prioridad</li>
-        </ul>
-        <ul id="lista-tareas"></ul>
+    <main >
+        <section class="tarjeta-login">
+            <h2 class="titulo-login">Tareas RVS Login</h2>
+            <form id="formulario-login" class="formulario-login">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required><br><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="Entrar" class="login-button">
+            </form>
+            <p class="nota-usuarios">Nota: Lista de Usuario</p>
+            <div class="lista-usuarios">
+                <div class="usuario">
+                <span class="usuario-label">Usuario:</span>
+                <span class="usuario-value">admin</span>
+                <span class="password-label">Contraseña:</span>
+                <span class="password-value">todo</span>
+                </div>
+                <div class="usuario">
+                <span class="usuario-label">Usuario:</span>
+                <span class="usuario-value">viewer</span>
+                <span class="password-label">Contraseña:</span>
+                <span class="password-value">viewer</span>
+                </div>
+            </div>
+        </section>
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="../js/main.js" defer></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>

@@ -36,9 +36,17 @@ function renderTareas() {
 
         listaTareas.appendChild(li);
 
-        li.addEventListener("click", () => {
+        tareaTexto.addEventListener("click", () => {
             completarTarea(index);
         });
+
+        const botonEditar = document.createElement("button");
+        botonEditar.textContent = "Editar";
+        botonEditar.addEventListener("click", (event) => {
+            event.stopPropagation();
+            editarTarea(index);
+        });
+        li.appendChild(botonEditar);
 
         const botonEliminar = document.createElement("button");
         botonEliminar.textContent = "Eliminar";
@@ -77,6 +85,37 @@ function agregarTarea(tarea, prioridadSelect) {
     renderTareas();
 }
 
+function editarTarea(index) {
+    const li = listaTareas.children[index];
+    const tareaTexto = li.querySelector(".task-text");
+    const tareaInput = document.createElement("input");
+    tareaInput.value = tareaTexto.textContent;
+    tareaInput.classList.add("task-input");
+    tareaTexto.replaceWith(tareaInput);
+
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+    saveButton.addEventListener("click", () => {
+        const nuevaTarea = tareaInput.value.trim();
+        if (nuevaTarea) {
+            tareas[index].tarea = nuevaTarea;
+            showToast("Tarea editada exitosamente");
+            localStorage.setItem("tareas", JSON.stringify(tareas));
+            renderTareas();
+        }
+    });
+
+    tareaInput.focus();
+    tareaInput.addEventListener("blur", () => {
+        tareaInput.replaceWith(tareaTexto);
+    });
+
+    const botonEditar = li.querySelector("button");
+    botonEditar.classList.add("hidden"); 
+
+    li.appendChild(saveButton);
+}
+
 function completarTarea(index) {
     tareas[index].completed = !tareas[index].completed;
     if (tareas[index].completed) {
@@ -92,6 +131,15 @@ function eliminarTarea(index) {
     localStorage.setItem("tareas", JSON.stringify(tareas));
     renderTareas();
 }
+
+function logout() {
+    const logoutButton = document.getElementById("logout-button");
+    logoutButton.addEventListener("click", () => {
+        window.location.href = "index.html";
+    });
+}
+
+logout();
 
 formTareas.addEventListener("submit", (e) => {
     e.preventDefault();
