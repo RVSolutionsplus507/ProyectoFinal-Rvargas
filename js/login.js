@@ -1,10 +1,10 @@
-function showToast(texto, isValid) {
+function showToast(texto, valido) {
     setTimeout(() => {
         Toastify({
             text: texto,
-            className: isValid ? "info" : "error",
+            className: valido ? "info" : "error",
             style: {
-                background: isValid ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #ff4b1f, #ff9068)",
+                background: valido ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #ff4b1f, #ff9068)",
                 borderRadius: "10px",
                 color: "white",
             },
@@ -22,9 +22,9 @@ document.getElementById('formulario-login').addEventListener('submit', function(
             const username = document.getElementById('usuario').value;
             const password = document.getElementById('password').value;
 
-            const isValid = data.users.some(user => user.username === username && user.password === password);
+            const valido = data.users.some(user => user.username === username && user.password === password);
 
-            if (isValid) {
+            if (valido) {
                 showToast("Inicio de sesión exitoso", true);
                 setTimeout(() => {
                     window.location.href = "../views/home.html";
