@@ -27,7 +27,7 @@ document.getElementById('formulario-login').addEventListener('submit', function(
             if (isValid) {
                 showToast("Inicio de sesión exitoso", true);
                 setTimeout(() => {
-                    window.location.href = "home.html";
+                    window.location.href = "../views/home.html";
                 }, 1000);
             } else {
                 showToast("Credenciales incorrectas", false);

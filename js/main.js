@@ -135,7 +135,7 @@ function eliminarTarea(index) {
 function logout() {
     const logoutButton = document.getElementById("logout-button");
     logoutButton.addEventListener("click", () => {
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     });
 }
 
