@@ -94,7 +94,7 @@ function editarTarea(index) {
     tareaTexto.replaceWith(tareaInput);
 
     const saveButton = document.createElement("button");
-    saveButton.textContent = "Save";
+    saveButton.textContent = "Guardar";
     saveButton.addEventListener("click", () => {
         const nuevaTarea = tareaInput.value.trim();
         if (nuevaTarea) {
